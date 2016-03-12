@@ -66,15 +66,14 @@ class eventViewController: UITableViewController {
            
             var a = 0;
             for var index = 0; index < events.count ; index++ {
-                if (mactcharray[indexPath.row].title == events[index].title) {
+                if (mactcharray[indexPath.row].title == events[index].title && mactcharray[indexPath.row].date == events[index].date ) {
                     a = index
                 }
             }
             
            events.removeAtIndex(a)
-            
-            let defaultsDate = "\(month)-\(day)"
-            tableView.reloadSections(section,withRowAnimation: .Fade)
+           mactcharray.removeAtIndex(indexPath.row)
+           self.tableView.reloadData()
         }
     }
     
