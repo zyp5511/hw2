@@ -14,10 +14,10 @@
 		FB4758B81C8FFE8C008AD1E3 /* HW2Cs407Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4758B71C8FFE8C008AD1E3 /* HW2Cs407Tests.swift */; };
 		FB4758C31C8FFE8C008AD1E3 /* HW2Cs407UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4758C21C8FFE8C008AD1E3 /* HW2Cs407UITests.swift */; };
 		FB4758D71C934D1C008AD1E3 /* mouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4758D61C934D1C008AD1E3 /* mouth.swift */; };
-		FB4758DB1C934F9F008AD1E3 /* day.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4758DA1C934F9F008AD1E3 /* day.swift */; };
 		FB4758DD1C939883008AD1E3 /* addaevent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4758DC1C939883008AD1E3 /* addaevent.swift */; };
 		FB4759191C93A478008AD1E3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4759181C93A478008AD1E3 /* Event.swift */; };
 		FB47591B1C93CF03008AD1E3 /* eventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47591A1C93CF03008AD1E3 /* eventViewController.swift */; };
+		FB47591D1C93DF2B008AD1E3 /* dayViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47591C1C93DF2B008AD1E3 /* dayViewcontroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +51,10 @@
 		FB4758C21C8FFE8C008AD1E3 /* HW2Cs407UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HW2Cs407UITests.swift; sourceTree = "<group>"; };
 		FB4758C41C8FFE8C008AD1E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB4758D61C934D1C008AD1E3 /* mouth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mouth.swift; sourceTree = "<group>"; };
-		FB4758DA1C934F9F008AD1E3 /* day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = day.swift; path = ../day.swift; sourceTree = "<group>"; };
 		FB4758DC1C939883008AD1E3 /* addaevent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addaevent.swift; sourceTree = "<group>"; };
 		FB4759181C93A478008AD1E3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FB47591A1C93CF03008AD1E3 /* eventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventViewController.swift; sourceTree = "<group>"; };
+		FB47591C1C93DF2B008AD1E3 /* dayViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dayViewcontroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,8 @@
 		FB4758A11C8FFE8C008AD1E3 /* HW2Cs407 */ = {
 			isa = PBXGroup;
 			children = (
+				FB47591C1C93DF2B008AD1E3 /* dayViewcontroller.swift */,
 				FB47591A1C93CF03008AD1E3 /* eventViewController.swift */,
-				FB4758DA1C934F9F008AD1E3 /* day.swift */,
 				FB4758DC1C939883008AD1E3 /* addaevent.swift */,
 				FB4758A21C8FFE8C008AD1E3 /* AppDelegate.swift */,
 				FB4758D61C934D1C008AD1E3 /* mouth.swift */,
@@ -269,9 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB4758D71C934D1C008AD1E3 /* mouth.swift in Sources */,
+				FB47591D1C93DF2B008AD1E3 /* dayViewcontroller.swift in Sources */,
 				FB4758A31C8FFE8C008AD1E3 /* AppDelegate.swift in Sources */,
 				FB47591B1C93CF03008AD1E3 /* eventViewController.swift in Sources */,
-				FB4758DB1C934F9F008AD1E3 /* day.swift in Sources */,
 				FB4758DD1C939883008AD1E3 /* addaevent.swift in Sources */,
 				FB4759191C93A478008AD1E3 /* Event.swift in Sources */,
 			);

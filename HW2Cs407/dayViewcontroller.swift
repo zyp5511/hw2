@@ -8,14 +8,20 @@
 
 import UIKit
 
-class day : UITableViewController {
+class dayViewcontroller : UITableViewController {
     
+    
+    var events = [AnyObject]()
     var month = Int()
     var day = Int()
     var numDays = [String]()
     var row = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+        print("Returned from detail screen~!!!!!")
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +56,8 @@ class day : UITableViewController {
         if (segue.identifier == "Events") {
             let vc: eventViewController = segue.destinationViewController as! eventViewController
             vc.day = row + 1
-            vc.month = month
+            vc.month = self.month
+            vc.events = self.events
         }
         
     }

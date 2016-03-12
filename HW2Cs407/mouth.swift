@@ -12,7 +12,7 @@ class mouth: UITableViewController {
     
     var months: [String] = ["January","February","March","April","May","June","July","Auguest","September","October","November","December"]
     var days = 0
-    var i = 0
+    var row = 0
     
     
     override func viewDidLoad() {
@@ -44,6 +44,7 @@ class mouth: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
       
         let i = indexPath.row
+        row = i+1
         if ( i == 3 || i == 6 || i==8 || i==11 ){
             days = 30
         }
@@ -60,9 +61,9 @@ class mouth: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "todays") {
-            let vc: day = segue.destinationViewController as! day
+            let vc: dayViewcontroller = segue.destinationViewController as! dayViewcontroller
             vc.day = days
-            vc.month = i + 1
+            vc.month = row
         }
         
     }
