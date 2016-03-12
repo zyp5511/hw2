@@ -34,15 +34,15 @@ class addaevent : UIViewController{
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let DestViewController : dayViewcontroller = segue.destinationViewController as! dayViewcontroller
+        let DestViewController : eventViewController = segue.destinationViewController as! eventViewController
           let date = "\(month)-\(day)"
           let event = Event(title: title_TextField.text!, date: date , message: message_TextField.text! )
-            events.append(event);
-            DestViewController.events=self.events
+            let encodedEvent = NSKeyedArchiver.archivedDataWithRootObject(event)
+            events.append(encodedEvent)
+            NSUserDefaults.standardUserDefaults().setObject(self.events, forKey: date)
+            NSUserDefaults.standardUserDefaults().synchronize()
             DestViewController.day=self.day
             DestViewController.month=self.month
     }
-
-
 
 }

@@ -11,23 +11,41 @@ import CoreData
 
 class eventViewController: UITableViewController {
     
-    var events = [AnyObject]()
     var day = Int()
     var month = Int()
-    var  mactcharray = [AnyObject]()
+    var mactcharray = [AnyObject]()
     
+    
+    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+        print("Returned from detail screen~!!!!!")
+        
+        let Date = "\(month)-\(day)"
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let events = defaults.arrayForKey(Date)
+        for var i = 0; i < events!.count; i++ {
+            let event = NSKeyedUnarchiver.unarchiveObjectWithData(events![i] as! NSData) as! Event
+            if (event.date == Date){
+                mactcharray.append(event)
+            }
+        }
+           self.tableView.reloadData()
+    }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let Date = "\(month)-\(day)"
-        
-        for var i = 0; i < events.count; i++ {
-            if (events[i].date == Date){
-                mactcharray.append(events[i])
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var events = defaults.arrayForKey(Date)
+        if (events != nil){
+        for var i = 0; i < events!.count; i++ {
+            let event = NSKeyedUnarchiver.unarchiveObjectWithData(events![i] as! NSData) as! Event
+            if (event.date == Date){
+                mactcharray.append(event)
             }
         }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,10 +66,9 @@ class eventViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath)
-        for var i = 0; i < mactcharray.count; i++ {
-            cell.textLabel?.text = mactcharray[i].title
-        }
-        
+    
+            cell.textLabel?.text = mactcharray[indexPath.row].title
+    
         return cell
     }
 
@@ -62,17 +79,15 @@ class eventViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        var events = [AnyObject]()
+        let Date = "\(month)-\(day)"
         if editingStyle == .Delete {
-           
-            var a = 0;
-            for var index = 0; index < events.count ; index++ {
-                if (mactcharray[indexPath.row].title == events[index].title && mactcharray[indexPath.row].date == events[index].date ) {
-                    a = index
-                }
-            }
-            
-           events.removeAtIndex(a)
            mactcharray.removeAtIndex(indexPath.row)
+        for var i = 0; i < mactcharray.count; i++ {
+            let encodedEvent = NSKeyedArchiver.archivedDataWithRootObject(mactcharray[i])
+            events.append(encodedEvent)
+            }
+            NSUserDefaults.standardUserDefaults().setObject(events, forKey: Date)
            self.tableView.reloadData()
         }
     }
@@ -82,7 +97,6 @@ class eventViewController: UITableViewController {
         let DestViewController : addaevent = segue.destinationViewController as! addaevent
         DestViewController.day=self.day
         DestViewController.month=self.month
-        DestViewController.events=self.events
     }
     
 }

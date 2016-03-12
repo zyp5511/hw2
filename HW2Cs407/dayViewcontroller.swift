@@ -19,11 +19,7 @@ class dayViewcontroller : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
-        print("Returned from detail screen~!!!!!")
-    }
-    
+       
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -57,8 +53,7 @@ class dayViewcontroller : UITableViewController {
             let vc: eventViewController = segue.destinationViewController as! eventViewController
             vc.day = row + 1
             vc.month = self.month
-            vc.events = self.events
-        }
+            }
         
     }
     
