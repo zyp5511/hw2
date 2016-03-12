@@ -9,21 +9,20 @@
 import UIKit
 
 class mouth: UITableViewController {
-    var months: [String] = ["Jan", "Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-    var numDays = 0
-    var month = 0
+    
+    var months: [String] = ["January","February","March","April","May","June","July","Auguest","September","October","November","December"]
+    var days = 0
+    var i = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -33,50 +32,40 @@ class mouth: UITableViewController {
         return months.count
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("monthcell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         cell.textLabel?.text = months[indexPath.row]
         
         return cell
     }
     
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        //let storyboard = UIStoryboard(name: "storyboard", bundle: nil);
-        //let days = storyboard.instantiateViewControllerWithIdentifier("DaysTableViewController") as! UITableViewController
-        //let destinationVC:DaysTableViewController = DaysTableViewController()
-        let row = indexPath.row
-        
-        if ( row == 0 || row == 2 || row==4 || row==6 || row==7 || row==9 || row==11){
-            numDays = 31
-            //destinationVC.daysInt = numDays
-            
+      
+        let i = indexPath.row
+        if ( i == 3 || i == 6 || i==8 || i==11 ){
+            days = 30
         }
-        else if(row == 1){
-            numDays = 28
-            //destinationVC.daysInt = numDays
+        else if(i == 1){
+            days = 28
         }
         else{
-            numDays = 30
-            //destinationVC.daysInt = numDays
+            days = 31
         }
         
-        self.performSegueWithIdentifier("toDate", sender: nil)
+        self.performSegueWithIdentifier("todays", sender: nil)
     }
+
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if (segue.identifier == "toDate") {
+        if (segue.identifier == "todays") {
             let vc: day = segue.destinationViewController as! day
-            vc.daysInt = numDays
-            vc.month = month
+            vc.day = days
+            vc.month = i + 1
         }
         
     }
+
     
 }
