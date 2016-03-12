@@ -18,6 +18,7 @@ class addaevent : UIViewController{
     
     
     @IBOutlet var title_lable :UILabel!
+    @IBOutlet var add_lable :UILabel!
     @IBOutlet var message :UILabel!
     
     @IBOutlet var title_TextField : UITextField!
@@ -27,9 +28,10 @@ class addaevent : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad() 
+        let date = "\(month)-\(day)"
         self.title_lable.text = "title"
         self.message.text = "message"
-
+        self.add_lable.text = "ADD A EVENT in " + date
         
     }
     

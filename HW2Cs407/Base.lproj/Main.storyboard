@@ -114,8 +114,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-Ma-G6a">
-                                <rect key="frame" x="288" y="247" width="25" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-Ma-G6a">
+                                <rect key="frame" x="288" y="248" width="25" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -128,15 +128,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD A EVENT in 00/00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMh-kk-DR7">
+                                <rect key="frame" x="212" y="133" width="177" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="QXO-Sd-L9k"/>
+                                    <constraint firstAttribute="width" constant="177" id="hQ4-00-GNf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IDG-sX-uLi" firstAttribute="centerX" secondItem="veP-xP-Btw" secondAttribute="centerX" id="5Dx-pb-i8d"/>
                             <constraint firstItem="9kq-DR-CtL" firstAttribute="centerX" secondItem="veP-xP-Btw" secondAttribute="centerX" id="DY2-Td-9Dg"/>
                             <constraint firstItem="9kq-DR-CtL" firstAttribute="top" secondItem="IDG-sX-uLi" secondAttribute="bottom" constant="34" id="Dm6-tu-nTH"/>
-                            <constraint firstItem="Nld-Ma-G6a" firstAttribute="top" secondItem="GsC-e8-RGe" secondAttribute="bottom" constant="41" id="DmS-Yw-81w"/>
-                            <constraint firstItem="IDG-sX-uLi" firstAttribute="top" secondItem="Nld-Ma-G6a" secondAttribute="bottom" constant="40" id="JP1-RF-TTZ"/>
-                            <constraint firstItem="Nld-Ma-G6a" firstAttribute="centerY" secondItem="veP-xP-Btw" secondAttribute="centerY" constant="-38" id="maL-b2-1rC"/>
+                            <constraint firstItem="Nld-Ma-G6a" firstAttribute="top" secondItem="GsC-e8-RGe" secondAttribute="bottom" constant="42" id="DmS-Yw-81w"/>
+                            <constraint firstItem="GsC-e8-RGe" firstAttribute="top" secondItem="pMh-kk-DR7" secondAttribute="bottom" constant="14" id="IPT-cV-g0r"/>
+                            <constraint firstItem="IDG-sX-uLi" firstAttribute="top" secondItem="Nld-Ma-G6a" secondAttribute="bottom" constant="39" id="JP1-RF-TTZ"/>
+                            <constraint firstItem="Nld-Ma-G6a" firstAttribute="centerY" secondItem="veP-xP-Btw" secondAttribute="centerY" constant="-37" id="maL-b2-1rC"/>
+                            <constraint firstItem="pMh-kk-DR7" firstAttribute="centerX" secondItem="veP-xP-Btw" secondAttribute="centerX" id="oXO-KB-esT"/>
                             <constraint firstItem="Nld-Ma-G6a" firstAttribute="centerX" secondItem="veP-xP-Btw" secondAttribute="centerX" id="q0d-nE-VRe"/>
                             <constraint firstItem="GsC-e8-RGe" firstAttribute="centerX" secondItem="veP-xP-Btw" secondAttribute="centerX" id="xRz-EO-8yu"/>
                         </constraints>
@@ -149,6 +161,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="add_lable" destination="pMh-kk-DR7" id="VGZ-5D-pxD"/>
                         <outlet property="message" destination="IDG-sX-uLi" id="dIx-2C-wg3"/>
                         <outlet property="message_TextField" destination="9kq-DR-CtL" id="EKB-ge-cTq"/>
                         <outlet property="title_TextField" destination="Nld-Ma-G6a" id="gZz-Cn-hds"/>
