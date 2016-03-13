@@ -1,4 +1,3 @@
 # hw2
 
-
-https://youtu.be/9XILENZmaWw
+https://youtu.be/Adlh_n-cUlA
