@@ -14,7 +14,7 @@ class eventViewController: UITableViewController {
     var day = Int()
     var month = Int()
     var mactcharray = [AnyObject]()
-    
+    var events = [AnyObject]()
     
     @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
         print("Returned from detail screen~!!!!!")
@@ -35,15 +35,16 @@ class eventViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let Date = "\(month)-\(day)"
-        let defaults = NSUserDefaults.standardUserDefaults()
-        var events = defaults.arrayForKey(Date)
-        if (events != nil){
-        for var i = 0; i < events!.count; i++ {
-            let event = NSKeyedUnarchiver.unarchiveObjectWithData(events![i] as! NSData) as! Event
+        let eventsArray = NSUserDefaults.standardUserDefaults().arrayForKey(Date)
+        if let eventsArray = eventsArray{
+            events = eventsArray
+        }
+        for var i = 0; i < events.count; i++ {
+            let event = NSKeyedUnarchiver.unarchiveObjectWithData(events[i] as! NSData) as! Event
             if (event.date == Date){
                 mactcharray.append(event)
             }
-        }
+        
         }
         
     }
